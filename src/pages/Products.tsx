@@ -1,22 +1,17 @@
 import { useQuery, gql } from '@apollo/client';
-import { useEffect } from 'react';
-
-const GET_DATA = gql`
-  {
-    getAllProducts {
-      id
-      name
-      description
-    }
-  }
-`;
 
 const Products = () => {
+  const GET_DATA = gql`
+    {
+      getAllProducts {
+        id
+        name
+        description
+      }
+    }
+  `;
   const { data } = useQuery(GET_DATA);
-
-  useEffect(() => {
-    console.log(data.getAllProducts);
-  });
+  console.log(data);
 
   return <div>Products</div>;
 };
