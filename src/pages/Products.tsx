@@ -1,6 +1,7 @@
+import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 
-const Products = () => {
+export default function Products() {
   const GET_DATA = gql`
     {
       getAllProducts {
@@ -14,6 +15,4 @@ const Products = () => {
   console.log(data);
 
   return <div>Products</div>;
-};
-
-export default Products;
+}
