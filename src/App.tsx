@@ -1,12 +1,11 @@
-import './App.css';
+import React from 'react';
 import Products from './pages/Products';
+import './App.css';
 
-const App = () => {
+export default function App() {
   return (
-  <div className='App'>
-    <Products />
-  </div>
+    <div className="App">
+      <Products />
+    </div>
   );
 }
-
-export default App;

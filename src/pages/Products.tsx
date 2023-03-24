@@ -1,6 +1,8 @@
+import React, { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 
-const Products = () => {
+export default function Products() {
+  const [products, setProducts] = useState([{ id: 'waiting' }]);
   const GET_DATA = gql`
     {
       getAllProducts {
@@ -11,9 +13,12 @@ const Products = () => {
     }
   `;
   const { data } = useQuery(GET_DATA);
-  console.log(data);
 
-  return <div>Products</div>;
-};
+  useEffect(() => {
+    if (data !== undefined) {
+      setProducts(data.getAllProducts);
+    }
+  }, [data]);
 
-export default Products;
+  return <div>{products[0].id}</div>;
+}
