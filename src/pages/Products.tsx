@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 
 export default function Products() {
-  const [products, setProducts] = useState([{ id: 'waiting' }]);
+  const [products, setProducts] = useState<any[]>([]);
   const GET_DATA = gql`
     {
       getAllProducts {
@@ -20,5 +20,13 @@ export default function Products() {
     }
   }, [data]);
 
-  return <div>{products[0].id}</div>;
+  return (
+    <div>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>{product.id}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
