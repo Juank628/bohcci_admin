@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import * as customTypes from '../types';
 
 export default function Products() {
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<customTypes.Product[]>([]);
   const GET_DATA = gql`
     {
       getAllProducts {
