@@ -3,3 +3,8 @@ export type Product = {
     name: string,
     description: string,
 };
+
+export type ProductCardProps = {
+    data: Product,
+    color: string,
+}

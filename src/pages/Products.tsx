@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import * as customTypes from '../types';
+import ProductCard from '../components/ProductCard';
 
 export default function Products() {
   const [products, setProducts] = useState<customTypes.Product[]>([]);
@@ -24,9 +25,13 @@ export default function Products() {
   return (
     <div>
       <ul>
-        {products.map((product) => (
-          <li key={product.id}>{product.id}</li>
-        ))}
+        {products.map((product) => {
+          const productData: customTypes.ProductCardProps = {
+            data: product,
+            color: 'red',
+          };
+          return <ProductCard data={productData.data} color={productData.color} />;
+        })}
       </ul>
     </div>
   );
