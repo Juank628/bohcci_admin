@@ -8,6 +8,7 @@ import ProductRow from '../components/ProductRow';
 export default function Products() {
   const [products, setProducts] = useState<customTypes.Product[]>([]);
   const [sortDirection, setSortDirection] = useState(1);
+  const [sortedColumn, setSortedColumn] = useState({ name: '', direction: 1 });
   const GET_DATA = gql`
     {
       getAllProducts {
@@ -41,6 +42,10 @@ export default function Products() {
       });
       setProducts(sortedProducts);
     }
+    setSortedColumn({
+      name: columnName,
+      direction: sortDirection,
+    });
     setSortDirection(sortDirection * -1);
   };
 
@@ -53,7 +58,7 @@ export default function Products() {
   return (
     <div className={styles.container}>
       <table className={styles.productsTable}>
-        <TableHeader columns={['id', 'name', 'description', 'price', 'sale', 'family']} sort={(e) => sortByString(e)} />
+        <TableHeader columns={['id', 'name', 'description', 'price', 'sale', 'family']} sortedColumn={sortedColumn} sort={(e) => sortByString(e)} />
         <tbody>
           {products.map((product) => {
             const productData: customTypes.ProductCardProps = {

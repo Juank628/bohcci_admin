@@ -16,5 +16,6 @@ export type ProductCardProps = {
 
 export type TableHeaderProps = {
     columns: string[],
+    sortedColumn: { name: string, direction: number }
     sort: (e: React.MouseEvent<HTMLButtonElement>) => void; // eslint-disable-line no-unused-vars
 }

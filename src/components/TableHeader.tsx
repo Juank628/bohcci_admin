@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './TableHeader.module.scss';
 import * as customTypes from '../types';
 
-export default function TableHeader({ columns, sort }:customTypes.TableHeaderProps) {
+export default function TableHeader({ columns, sortedColumn, sort }:customTypes.TableHeaderProps) {
   return (
     <thead>
       <tr>
@@ -10,7 +10,11 @@ export default function TableHeader({ columns, sort }:customTypes.TableHeaderPro
           <th key={column} className={styles.cell}>
             <div>
               <span>{column}</span>
-              <button type="button" name={column} onClick={sort}>⬇️</button>
+              <button type="button" name={column} onClick={sort}>
+                {sortedColumn.name === column && sortedColumn.direction === -1 ? '⬇️' : null}
+                {sortedColumn.name === column && sortedColumn.direction === 1 ? '⬆️' : null}
+                {sortedColumn.name !== column ? '>' : null}
+              </button>
             </div>
           </th>
         )) }
