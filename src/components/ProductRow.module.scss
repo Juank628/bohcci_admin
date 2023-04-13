@@ -1,0 +1,12 @@
+.container {
+  cursor: pointer;
+}
+
+.container td {
+  text-align: center;
+  padding: 10px;
+}
+
+.container:hover {
+  background-color: lightgray;
+}

@@ -1,0 +1,28 @@
+@import '../assets/global_variables.scss';
+
+.cell {
+  background-color: $color-primary;
+  color: $color-on-primary;
+  font-weight: 500;
+  padding: 5px;
+}
+
+.cell div {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cell div span {
+  grid-column-start: 2;
+}
+
+.cell div button {
+  grid-column-start: 3;
+  width: 4ch;
+  margin-left: auto;
+  background-color: transparent;
+  border: 0;
+  color: white;
+  cursor: pointer;
+}
