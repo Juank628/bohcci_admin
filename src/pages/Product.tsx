@@ -31,7 +31,7 @@ export default function Product() {
         </label>
       </div>
       <div className={styles.zone_2}>
-        photo
+        Photo
       </div>
     </form>
   );
