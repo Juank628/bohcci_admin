@@ -1,38 +1,45 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import styles from './Product.module.scss';
 
 export default function Product() {
+  const { id } = useParams();
+
   return (
-    <form className={styles.container}>
-      <div className={styles.zone_1}>
+    <div className={styles.container}>
+      <form className={styles.zone_1}>
+        <p className={styles.title}>{`id: ${id}`}</p>
+
         <label htmlFor="name">
           Name
-          <input id="name" type="text" />
+          <input className="formInput" id="name" type="text" />
         </label>
 
         <label htmlFor="description">
           Description
-          <input id="description" type="text" />
+          <input className="formInput" id="description" type="text" />
         </label>
 
         <label htmlFor="family">
           Family
-          <input id="family" type="text" />
+          <input className="formInput" id="family" type="text" />
         </label>
 
         <label htmlFor="price">
           Price
-          <input id="price" type="number" />
+          <input className="formInput" id="price" type="number" />
         </label>
 
         <label htmlFor="Sale">
           Sale
-          <input id="Sale" type="number" />
+          <input className="formInput" id="Sale" type="number" />
         </label>
-      </div>
+
+        <button className={styles.save} type="button">Guardar</button>
+      </form>
       <div className={styles.zone_2}>
-        Photo
+        <img src={`https://res.cloudinary.com/dh4r5apn8/image/upload/v1685382620/Bohcci/${id}.jpg`} alt="product" />
       </div>
-    </form>
+    </div>
   );
 }

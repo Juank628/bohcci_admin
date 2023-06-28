@@ -5,3 +5,10 @@
 body {
   font-family: 'roboto', sans-serif;
 }
+
+.formInput {
+  border-radius: 15px;
+  border: 1px solid gray;
+  height: 2rem;
+  padding: 0 1rem;
+}

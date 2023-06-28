@@ -1,20 +1,43 @@
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: space-evenly;
+
+  label {
+    margin-top: 10px;
+    margin-left: auto;
+  }
+
+  input {
+    margin-left: 10px;
+    width: 25vw;
+  }
+
+  img {
+    width: 30vw;
+  }
 }
 
 .zone_1,
 .zone_2 {
   display: flex;
   flex-direction: column;
-  padding: 100px;
+  gap: 0.8rem;
+  padding-top: 100px;
 }
 
-.container label {
-  margin-top: 10px;
+.title {
+  margin: 0 0 0 auto;
+  font-size: 1.5rem;
+}
+
+.save {
+  background-color: #5cb85c;
+  color: white;
+  border: 0;
+  border-radius: 50px;
+  width: 200px;
+  padding: 10px;
+  margin-top: 50px;
   margin-left: auto;
-}
-
-.container label input {
-  margin-left: 10px;
+  cursor: pointer;
 }
