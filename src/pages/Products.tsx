@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import { useNavigate } from 'react-router-dom';
 import styles from './Products.module.scss';
 import * as customTypes from '../types';
 import TableHeader from '../components/TableHeader';
 import ProductRow from '../components/ProductRow';
 import { useSortColumn } from '../hooks/sorting';
+import addIcon from '../assets/img/add_icon.png';
 
 export default function Products() {
+  const navigate = useNavigate();
   const {
     sortedColumn, sortedProducts, sort, setInitialProducts,
   } = useSortColumn();
@@ -34,6 +37,11 @@ export default function Products() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.toolBar}>
+        <button type="button" onClick={() => navigate('new')}>
+          <img src={addIcon} alt="add product" />
+        </button>
+      </div>
       <table className={styles.productsTable}>
         <TableHeader columns={['id', 'name', 'description', 'price', 'sale', 'family']} sortedColumn={sortedColumn} sort={(e) => sort(e)} />
         <tbody>
